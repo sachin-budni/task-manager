@@ -42,7 +42,7 @@ public class UserService {
 		user.setId(new Random().nextInt(999999));
 		user.setPassword(bcryptEncoder.encode(user.getPassword()));
 		Set<Role> roles = new HashSet<Role>();
-		Role role = roleRepo.findById(1).orElseThrow(() -> new Exception("can you find role"));
+		Role role = roleRepo.findById(3).orElseThrow(() -> new Exception("can you find role"));
 		roles.add(role);
 		user.setRoles(roles);
 		try {

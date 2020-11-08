@@ -22,8 +22,8 @@ public class NotificationService {
 		SimpleMailMessage mail = new SimpleMailMessage();
 		mail.setTo(user.getEmail());
 		mail.setFrom("sachinswapna143@gmail.com");
-		mail.setSubject("Toys for shots is coming soon!");
-		mail.setText("this is cool notification");
+		mail.setSubject("Registered my application");
+		mail.setText("<h1>Well come to my best application</h1>");
 		
 		javaMailSender.send(mail);
 	}
