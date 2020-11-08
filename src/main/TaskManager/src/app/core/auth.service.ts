@@ -56,7 +56,7 @@ export class AuthService {
   }
 
   upload(uploadImageData): void {
-    this.http.put(`/uploadFile/${this.user.id}`, uploadImageData, { headers: { Auth: '' } })
+    this.http.post(`/uploadFile/${this.user.id}`, uploadImageData, { headers: { Auth: '' } })
       .subscribe((response: any) => {
         this.user.profilepic = response.fileDownloadUri;
       }, (err) => err.error.text);

@@ -78,13 +78,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.cors().and().csrf().disable()
 				.authorizeRequests()
-				.antMatchers("/**/*").permitAll()
+				.antMatchers("/**").permitAll()
 				.antMatchers("/api/register", "/api/login", "/api/downloadFile/**").permitAll()
 				.antMatchers("/api/add-task/**", "/api/delete-task/**", "/api/tasks").hasAnyAuthority("ADMIN")
 				.antMatchers("/api/update-task/**").hasAnyAuthority("EDITOR")
 				.antMatchers("/api/**").authenticated()
 				.anyRequest().authenticated().and()
-				.logout().permitAll().and()
+//				.logout().permitAll().and()
 				.exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
